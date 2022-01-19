@@ -6,7 +6,7 @@
 #Released under GPL 3.0
 #William Stearns <bill@activecountermeasures.com>
 
-#Version 1.0.0
+#Version 1.0.1
 
 #Sample runs:
 #Look at a single sensor on an AC-Hunter system
@@ -39,8 +39,10 @@ else
 	echo "zeek-cut utility not installed, installing.  sudo may prompt you to enter your password."
 	if [ -n "`type -path apt`" ]; then
 		sudo apt install zeek-aux >&2 || exit 1
+		cutter_tool='zeek-cut'
 	elif [ -n "`type -path yum`" ]; then
 		sudo yum install zeek-aux >&2 || exit 1
+		cutter_tool='zeek-cut'
 	else
 		echo "Unable to locate an appropriate installer.  Please install the zeek-cut utility and rerun this tool." >&2
 		exit 1
